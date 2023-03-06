@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WinterWorkShop.Cinema.Data.Models;
 
 namespace WinterWorkShop.Cinema.Data.Repositories
 {
-    public class IProjectionRepository
+    public interface IProjectionRepository
     {
+        public List<ProjectionModel> GetAll();
     }
 }
