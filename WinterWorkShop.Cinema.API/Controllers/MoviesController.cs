@@ -34,5 +34,22 @@ namespace WinterWorkShop.Cinema.API.Controllers
 
             return result;
         }
+
+        [HttpPost()]
+        public GetAllMoviesResponse GetMoviesById(int id)
+        {
+            var result = new GetAllMoviesResponse();
+            var movieModel = _movieRepository.GetById(id);
+            if (movieModel == null)
+                return null;
+            else
+            {
+                result.Id = movieModel.Id;
+                result.Name = movieModel.Name;
+                result.Descripton = movieModel.Description;
+                return result;
+            }
+
+        }
     }
 }

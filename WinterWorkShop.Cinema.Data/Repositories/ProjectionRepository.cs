@@ -21,13 +21,7 @@ namespace WinterWorkShop.Cinema.Data.Repositories
             {
                 if (projection.Id == id)
                 {
-                    var projectionModel = new ProjectionModel();
-                    projectionModel.Id = projection.Id;
-                    projectionModel.Name = projection.Name;
-                    projectionModel.Description = projection.Description;
-                    projectionModel.DateTime = projection.DateTime;
-                    projectionModel.BrojSale = projection.BrojSale;
-                    return projectionModel;
+                    return projection;
                 }
             }
             return null;
