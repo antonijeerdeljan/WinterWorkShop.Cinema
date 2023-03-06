@@ -26,5 +26,21 @@ namespace WinterWorkShop.Cinema.Data.Repositories
             }
             return null;
         }
+
+        public List<ProjectionModel> GetByMovieId(int movieId)
+        {
+            List<ProjectionModel> projectionModels = GetAll();
+            List<ProjectionModel> projectionModelsWithMovieId = new List<ProjectionModel>();
+            foreach (var projection in projectionModels)
+            {
+                if(projection.MovieId == movieId)
+                {
+                    projectionModelsWithMovieId.Add(projection);
+                }
+            }
+            
+            return projectionModelsWithMovieId;
+
+        }
     }
 }

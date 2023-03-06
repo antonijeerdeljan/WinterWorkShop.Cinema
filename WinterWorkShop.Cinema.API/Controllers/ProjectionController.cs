@@ -31,6 +31,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
                     Descripton = projection.Description,
                     BrojSale = projection.BrojSale,
                     DateTime = projection.DateTime,
+                    MovieId = projection.MovieId,
 
                 });
             }
@@ -38,7 +39,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
             return result;
         }
 
-
+        
         [HttpPost()]
         public GetAllProjectionsResponse GetProjectionById(int id) 
         {
@@ -53,11 +54,38 @@ namespace WinterWorkShop.Cinema.API.Controllers
                 result.Name = projectionModel.Name;
                 result.Descripton = projectionModel.Description;
                 result.Id = projectionModel.Id;
+                result.MovieId = projectionModel.MovieId;
                 return result;
             }
             
         }
+        
+        [HttpPost()]
+        [Route("projectionsByMovieId")]
 
+        public List<GetAllProjectionsResponse> GetAllProjectionsByMovieId(int movieId) 
+        {
+            var projetionModels = _projectionRepository.GetByMovieId(movieId);
+
+            var result = new List<GetAllProjectionsResponse>();
+
+            foreach (var projection in projetionModels)
+            {
+                result.Add(new GetAllProjectionsResponse
+                {
+                    Id = projection.Id,
+                    Name = projection.Name,
+                    Descripton = projection.Description,
+                    BrojSale = projection.BrojSale,
+                    DateTime = projection.DateTime,
+                    MovieId = projection.MovieId,
+
+                });
+            }
+
+            return result;
+        }
+        
 
     }
 }
