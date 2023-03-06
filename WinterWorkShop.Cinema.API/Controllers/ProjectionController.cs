@@ -39,5 +39,25 @@ namespace WinterWorkShop.Cinema.API.Controllers
         }
 
 
+        [HttpPost()]
+        public GetAllProjectionsResponse GetProjectionById(int id) 
+        {
+            var result = new GetAllProjectionsResponse();
+            var projectionModel = _projectionRepository.GetById(id);
+            if (projectionModel == null)
+                return null;
+            else
+            {
+                result.BrojSale = projectionModel.BrojSale;
+                result.DateTime = projectionModel.DateTime;
+                result.Name = projectionModel.Name;
+                result.Descripton = projectionModel.Description;
+                result.Id = projectionModel.Id;
+                return result;
+            }
+            
+        }
+
+
     }
 }
