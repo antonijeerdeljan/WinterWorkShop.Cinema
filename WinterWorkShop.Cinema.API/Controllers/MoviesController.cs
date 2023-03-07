@@ -35,8 +35,8 @@ namespace WinterWorkShop.Cinema.API.Controllers
             return result;
         }
 
-        [HttpPost()]
-        public GetAllMoviesResponse GetMoviesById(int id)
+        [HttpGet()]
+        public GetAllMoviesResponse GetMovieById(int id)
         {
             var result = new GetAllMoviesResponse();
             var movieModel = _movieRepository.GetById(id);

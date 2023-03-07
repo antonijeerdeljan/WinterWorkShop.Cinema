@@ -40,7 +40,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
         }
 
         
-        [HttpPost()]
+        [HttpGet()]
         public GetAllProjectionsResponse GetProjectionById(int id) 
         {
             var result = new GetAllProjectionsResponse();
@@ -60,7 +60,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
             
         }
         
-        [HttpPost()]
+        [HttpGet()]
         [Route("projectionsByMovieId")]
 
         public List<GetAllProjectionsResponse> GetAllProjectionsByMovieId(int movieId) 
